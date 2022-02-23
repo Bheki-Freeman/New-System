@@ -5,14 +5,15 @@ using namespace std;
 int main()
 {
     // variables
+    int number_of_students = 2;
     int final_mark = 0;
     int id, test1, test2, tutorial, project, exam;
     string name, surname;
-    int lowest_mark = 100;
-    int highest_mark = 0;
+    int lowest_mark = 100, lowest_marks[number_of_students];
+    int highest_mark = 0, average_mark = 0;
+    int lc_average_mark;
     char grade = 'X';
     string student_class = "IT11K";
-    int number_of_students = 2;
 
     string module_code = "AAIBP111";
     string school = "Limkokwing University of Creative Technology";
@@ -130,7 +131,7 @@ int main()
                 else if (final_mark >= 20 && final_mark <= 29)
                 {
                     grade = 'G';
-                }               
+                }
 
                 cout << "Grade : " << grade << endl;
 
@@ -180,9 +181,34 @@ int main()
             {
                 grade = 'G';
             }
-           
+
             cout << student_ids[i] << "\t" << student_names[i] << "\t" << student_surnames[i] << "\t" << test_one_marks[i] << "\t" << test_two_marks[i] << "\t" << tutorial_marks[i] << "\t" << project_marks[i] << "\t" << exam_marks[i] << "\t" << final_mark << "\t" << grade << endl;
+            lowest_marks[i] = final_mark;
+            average_mark += final_mark;
+
+            // Now find the highest
+            if (final_mark > highest_mark)
+            {
+                highest_mark = final_mark;
+            }
         }
+        // Set the lowest mark
+        for (int i = 0; i < number_of_students; i++)
+        {
+            if (lowest_marks[i] < lowest_mark)
+            {
+                lowest_mark = lowest_marks[i];
+            }
+        }
+
+        // set average mark
+        lc_average_mark = (average_mark / number_of_students);
+
+        cout << "------------------------------------------" << endl;
+        cout << "*** The highest mark: " << highest_mark << endl;
+        cout << "*** The lowest mark : " << lowest_mark << endl;
+        cout << "*** The average mark : " << lc_average_mark << endl;
+
         break;
     case 0:
         exit(1);
