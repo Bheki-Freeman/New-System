@@ -105,12 +105,18 @@ int main()
 
         break;
     case 2:
+        cout << school << "\n" << faculty << "\n" << student_class << "\n" << module_code << endl;
         cout << "Displaying Class Report" << endl;
+        cout << "\t **** " << endl;
+        cout << "ID\tName\tSurname\tTest1\tTest2\tTutoria\tProject\tExam\tFinal\tGrade" << endl;
+        for(int i= 0; i<number_of_students; i++){
+        cout << student_ids[i] << "\t" << student_names[i] <<"\t" << student_surnames[i] <<"\t" <<test_one_marks[i]<<"\t" << test_two_marks[i] << "\t" << tutorial_marks[i] << "\t" << project_marks[i] << "\t"<< exam_marks[i] << "\t" << final_mark << "\t" << grade << endl;
+        
+        }
         break;
     case 0:
         exit(1);
         break;
-
     default:
         cout << "Wrong response" << endl;
         break;
